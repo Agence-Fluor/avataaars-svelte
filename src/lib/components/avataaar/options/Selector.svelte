@@ -4,16 +4,21 @@
 	import type OptionContext from './OptionContext.js';
 	import type Option from './Option.js';
 
-	export let option: Option;
-	export let defaultOption: { component: any; optionValue: string };
-	export let components: { component: any; optionValue: string }[];
-
-	// Collect any additional props passed to Selector
-	export let restProps: any = {};
+	let {
+		option,
+		defaultOption,
+		components,
+		restProps = {}
+	}: {
+		option: Option;
+		defaultOption: { component: any; optionValue: string };
+		components: { component: any; optionValue: string }[];
+		restProps?: any;
+	} = $props();
 
 	const optionContext: OptionContext = getContext('optionContext');
 
-	let selectedComponent: any = null;
+	let selectedComponent: any = $state(null);
 
 	function updateOptionValues() {
 		const values = components.map((c) => c.optionValue);
@@ -58,12 +63,14 @@
 		selectedComponent = getSelectedComponent();
 	});
 
-	const unsubscribe = optionContext.state.subscribe(optionContextUpdate);
+	const unsubscribeState = optionContext.state.subscribe(optionContextUpdate);
+	const unsubscribeData = optionContext.data.subscribe(optionContextUpdate);
 
 	onDestroy(() => {
 		// optionContext.removeStateChangeListener(optionContextUpdate);
 		optionContext.optionExit(option.key);
-		unsubscribe();
+		unsubscribeState();
+		unsubscribeData();
 	});
 </script>
 

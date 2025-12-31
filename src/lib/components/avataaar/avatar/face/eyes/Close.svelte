@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let fillOpacity: number = 0.599999964;
+	let {
+		fillOpacity = 0.599999964
+	}: {
+		fillOpacity?: number;
+	} = $props();
 
 	// Optional, if you want to replicate the static `optionValue`
 	export const optionValue = 'Close';

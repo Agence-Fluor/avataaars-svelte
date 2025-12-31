@@ -1,6 +1,5 @@
 <!-- Avatar.svelte -->
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Clothes from './clothes/clothes.svelte';
 	import Face from './face/face.svelte';
 	import Top from './top/top.svelte';
@@ -8,26 +7,29 @@
 	import Skin from './skin/skin.svelte';
 
 	// Props
-	export let avatarStyle = 'Circle';
-	export let className = '';
-	export let style: string = '';
+	let {
+		avatarStyle = 'Circle',
+		className = '',
+		style = '',
+		avatarRef = $bindable(),
+	}: {
+		avatarStyle?: string;
+		className?: string;
+		style?: string;
+		avatarRef?: SVGSVGElement;
+	} = $props();
 
-	// Generate unique IDs for paths and masks
-	let path1: string, path2: string, path3: string, mask1: string, mask2: string, mask3: string;
-	export let avatarRef: SVGSVGElement;
-
-	onMount(async () => {
-		const uniqueId = () => 'id-' + Math.random().toString(36).substr(2, 9);
-		path1 = uniqueId();
-		path2 = uniqueId();
-		path3 = uniqueId();
-		mask1 = uniqueId();
-		mask2 = uniqueId();
-		mask3 = uniqueId();
-	});
+	// Generate unique IDs for paths and masks at runtime
+	const uniqueId = () => 'id-' + Math.random().toString(36).substr(2, 9);
+	let path1 = $state(uniqueId());
+	let path2 = $state(uniqueId());
+	let path3 = $state(uniqueId());
+	let mask1 = $state(uniqueId());
+	let mask2 = $state(uniqueId());
+	let mask3 = $state(uniqueId());
 
 	// Determine if the avatar style is 'Circle'
-	$: circle = avatarStyle === 'Circle';
+	let circle = $derived(avatarStyle === 'Circle');
 </script>
 
 <svg
@@ -57,20 +59,8 @@
 		<g transform="translate(-825.000000, -1100.000000)" id="Avataaar/Circle">
 			<g transform="translate(825.000000, 1100.000000)">
 				{#if circle}
-					<g
-						id="Circle"
-						stroke-width="1"
-						fill-rule="evenodd"
-						transform="translate(12.000000, 40.000000)"
-					>
-						<mask id={mask1} fill="white">
-							<use xlink:href={'#' + path1} />
-						</mask>
-						<use id="Circle-Background" fill="#E6E6E6" xlink:href={'#' + path1} />
-						<g id="Color/Palette/Blue-01" mask={'url(#' + mask1 + ')'} fill="#65C9FF">
-							<rect id="🖍Color" x="0" y="0" width="240" height="240" />
-						</g>
-					</g>
+					
+
 					<mask id={mask2} fill="white">
 						<use xlink:href={'#' + path2} />
 					</mask>

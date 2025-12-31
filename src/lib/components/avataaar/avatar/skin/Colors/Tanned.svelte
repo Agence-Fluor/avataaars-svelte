@@ -1,7 +1,12 @@
 <!-- Tanned.svelte -->
 <script lang="ts">
-	export let maskID: string;
-	export let optionValue: string = 'Tanned';
+	let {
+		maskID,
+		optionValue = 'Tanned'
+	}: {
+		maskID: string;
+		optionValue?: string
+	} = $props();
 </script>
 
 <g id={'Skin/' + optionValue} mask={'url(#' + maskID + ')'} fill="#FD9841">

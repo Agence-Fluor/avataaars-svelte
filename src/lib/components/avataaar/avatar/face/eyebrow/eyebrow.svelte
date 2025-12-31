@@ -1,6 +1,6 @@
 <!-- Eyebrow.svelte -->
 <script lang="ts">
-	import { EyebrowOption } from '$lib/components/avataaar/options/options.js';
+	import { EyebrowOption } from '../../../options/options.js';
 	import AngryNatural from './AngryNatural.svelte';
 	import Default from './Default.svelte';
 	import DefaultNatural from './DefaultNatural.svelte';
@@ -12,8 +12,8 @@
 	import UnibrowNatural from './UnibrowNatural.svelte';
 	import UpDown from './UpDown.svelte';
 	import UpDownNatural from './UpDownNatural.svelte';
-	import Angry from '$lib/components/avataaar/avatar/face/eyebrow/Angry.svelte';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
+	import Angry from './Angry.svelte';
+	import Selector from '../../../options/Selector.svelte';
 
 	const components = [
 		{ component: Angry, optionValue: 'Angry' },

@@ -1,6 +1,6 @@
 <!-- Skull.svelte -->
 <script lang="ts">
-	export let maskID: string;
+	let { maskID }: { maskID: string } = $props();
 	export const optionValue = 'Skull';
 </script>
 

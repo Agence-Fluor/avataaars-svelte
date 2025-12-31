@@ -1,6 +1,21 @@
 <script lang="ts">
 	import ColorComponent from './ColorComponent.svelte';
-	export let maskID: string;
+	let {
+		maskID,
+		selectedColor = 'BrownDark'
+	}: {
+		maskID: string;
+		selectedColor?:
+			| 'Auburn'
+			| 'Black'
+			| 'Blonde'
+			| 'BlondeGolden'
+			| 'Brown'
+			| 'BrownDark'
+			| 'Platinum'
+			| 'Red'
+			| 'SilverGray';
+	} = $props();
 
 	// Define the available colors
 	const colors: {
@@ -26,20 +41,8 @@
 		SilverGray: '#E8E1E1'
 	};
 
-	// Default selected color
-	export let selectedColor:
-		| 'Auburn'
-		| 'Black'
-		| 'Blonde'
-		| 'BlondeGolden'
-		| 'Brown'
-		| 'BrownDark'
-		| 'Platinum'
-		| 'Red'
-		| 'SilverGray' = 'BrownDark';
-
 	// Get the color value based on the selected color
-	$: colorValue = colors[selectedColor] || colors['BrownDark'];
+	let colorValue = $derived(colors[selectedColor] || colors['BrownDark']);
 </script>
 
 <ColorComponent name={selectedColor} color={colorValue} {maskID} />

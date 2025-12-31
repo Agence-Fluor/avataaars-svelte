@@ -1,11 +1,11 @@
 <!-- FacialHair.svelte -->
 <script lang="ts">
-	import { FacialHairOption } from '$lib/components/avataaar/options/options.js';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
+	import { FacialHairOption } from '../../../options/options.js';
+	import Selector from '../../../options/Selector.svelte';
 	import BeardLight from './BeardLight.svelte';
 	// import BeardMajestic from './BeardMajestic.svelte';
 	// import BeardMedium from './BeardMedium.svelte';
-	import Blank from '$lib/components/avataaar/avatar/top/facialHair/Blank.svelte';
+	import Blank from './Blank.svelte';
 	// import MoustacheFancy from './MoustacheFancy.svelte';
 	// import MoustacheMagnum from './MoustacheMagnum.svelte';
 

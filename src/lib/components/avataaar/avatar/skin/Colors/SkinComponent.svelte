@@ -1,7 +1,13 @@
 <script lang="ts">
-	export let optionValue: string;
-	export let color: string;
-	export let maskID: string;
+	let {
+		optionValue,
+		color,
+		maskID
+	}: {
+		optionValue: string;
+		color: string;
+		maskID: string;
+	} = $props();
 	console.log(optionValue, color, maskID);
 </script>
 

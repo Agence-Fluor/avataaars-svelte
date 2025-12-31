@@ -1,7 +1,12 @@
 <!-- Black.svelte -->
 <script lang="ts">
-	export let maskID: string;
-	export let optionValue: string = 'Black';
+	let {
+		maskID,
+		optionValue = 'Black'
+	}: {
+		maskID: string;
+		optionValue?: string
+	} = $props();
 </script>
 
 <g id={'Skin/' + optionValue} mask={'url(#' + maskID + ')'} fill="#614335">

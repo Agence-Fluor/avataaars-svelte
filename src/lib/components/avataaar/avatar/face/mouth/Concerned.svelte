@@ -1,17 +1,10 @@
 <!-- Concerned.svelte -->
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	export const optionValue: string = 'Concerned';
 
-	let path1: string;
-	let mask1: string;
-
-	onMount(() => {
-		const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
-		path1 = uniqueId();
-		mask1 = uniqueId();
-	});
+	const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
+	const path1 = uniqueId();
+	const mask1 = uniqueId();
 </script>
 
 <g id="Mouth/Concerned" transform="translate(2.000000, 52.000000)">

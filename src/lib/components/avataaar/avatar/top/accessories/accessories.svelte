@@ -1,8 +1,8 @@
 <!-- Accessories.svelte -->
 <script lang="ts">
-	import { AccessoriesOption } from '$lib/components/avataaar/options/options.js';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
-	import Blank from '$lib/components/avataaar/avatar/top/accessories/Blank.svelte';
+	import { AccessoriesOption } from '../../../options/options.js';
+	import Selector from '../../../options/Selector.svelte';
+	import Blank from './Blank.svelte';
 	// import Kurt from './Kurt.svelte';
 	// import Prescription01 from './Prescription01.svelte';
 	// import Prescription02 from './Prescription02.svelte';

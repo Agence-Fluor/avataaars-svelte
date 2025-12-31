@@ -1,7 +1,7 @@
 <!-- Mouth.svelte -->
 <script lang="ts">
-	import { MouthOption } from '$lib/components/avataaar/options/options.js';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
+	import { MouthOption } from '../../../options/options.js';
+	import Selector from '../../../options/Selector.svelte';
 	import Concerned from './Concerned.svelte';
 	import Default from './Default.svelte';
 	import Disbelief from './Disbelief.svelte';

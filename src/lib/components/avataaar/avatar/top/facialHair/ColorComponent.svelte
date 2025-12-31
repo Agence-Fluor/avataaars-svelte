@@ -1,7 +1,13 @@
 <script lang="ts">
-	export let name: string;
-	export let color: string;
-	export let maskID: string;
+	let {
+		name,
+		color,
+		maskID
+	}: {
+		name: string;
+		color: string;
+		maskID: string;
+	} = $props();
 </script>
 
 <g id="Color/Hair/{name}" mask="url(#{maskID})" fill={color}>

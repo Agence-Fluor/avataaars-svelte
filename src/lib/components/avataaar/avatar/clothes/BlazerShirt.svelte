@@ -1,19 +1,12 @@
 <!-- BlazerShirt.svelte -->
 <script lang="ts">
 	// Generate unique IDs for paths and masks
-	import { onMount } from 'svelte';
-
 	// Assigning a static value for optionValue similar to React's static property
 	export const optionValue = 'BlazerShirt';
 
-	let path1: string, mask1: string;
-
-	// Generate unique IDs when the component is mounted
-	onMount(() => {
-		const uniqueId = () => 'id-' + Math.random().toString(36).substr(2, 9);
-		path1 = uniqueId();
-		mask1 = uniqueId();
-	});
+	const uniqueId = () => 'id-' + Math.random().toString(36).substr(2, 9);
+	const path1 = uniqueId();
+	const mask1 = uniqueId();
 </script>
 
 <g id="Clothing/Blazer-+-Shirt" transform="translate(0.000000, 170.000000)">

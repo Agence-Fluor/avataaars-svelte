@@ -11,10 +11,10 @@
 	import Platinum from './Platinum.svelte';
 	import Red from './Red.svelte';
 	import SilverGray from './SilverGray.svelte';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
-	import { HairColorOption } from '$lib/components/avataaar/options/options.js';
+	import Selector from '../../../../options/Selector.svelte';
+	import { HairColorOption } from '../../../../options/options.js';
 
-	export let maskID: string;
+	let { maskID }: { maskID: string } = $props();
 
 	const option = HairColorOption;
 	const defaultOption = { component: BrownDark, optionValue: 'BrownDark' };

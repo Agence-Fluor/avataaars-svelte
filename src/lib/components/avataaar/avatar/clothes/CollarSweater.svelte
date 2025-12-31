@@ -1,18 +1,12 @@
 <!-- CollarSweater.svelte -->
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Colors from './Colors/Colors.svelte';
 
 	export const optionValue = 'CollarSweater';
 
-	let path1: string;
-	let mask1: string;
-
-	onMount(() => {
-		const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
-		path1 = uniqueId();
-		mask1 = uniqueId();
-	});
+	const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
+	const path1 = uniqueId();
+	const mask1 = uniqueId();
 </script>
 
 <g id="Clothing/Collar-+-Sweater" transform="translate(0.000000, 170.000000)">

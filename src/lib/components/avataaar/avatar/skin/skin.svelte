@@ -1,17 +1,16 @@
 <!-- Skin.svelte -->
 <script lang="ts">
 	import { SkinOption } from '../../options/options.js';
-	import Selector from '../../options/Selector.svelte';
-	import Black from '$lib/components/avataaar/avatar/skin/Colors/Black.svelte';
+	import Selector from '../../options/Selector.svelte'; //'../../options/Selector.svelte';
+	import Black from './Colors/Black.svelte';
+	import Brown from './Colors/Brown.svelte';
+	import DarkBrown from './Colors/DarkBrown.svelte';
+	import Light from './Colors/Light.svelte';
+	import Pale from './Colors/Pale.svelte';
+	import Tanned from './Colors/Tanned.svelte';
+	import Yellow from './Colors/Yellow.svelte';
 
-	import Brown from '$lib/components/avataaar/avatar/skin/Colors/Brown.svelte';
-	import DarkBrown from '$lib/components/avataaar/avatar/skin/Colors/DarkBrown.svelte';
-	import Light from '$lib/components/avataaar/avatar/skin/Colors/Light.svelte';
-	import Pale from '$lib/components/avataaar/avatar/skin/Colors/Pale.svelte';
-	import Tanned from '$lib/components/avataaar/avatar/skin/Colors/Tanned.svelte';
-	import Yellow from '$lib/components/avataaar/avatar/skin/Colors/Yellow.svelte';
-
-	export let maskID: string;
+	let { maskID }: { maskID: string } = $props();
 
 	const components = [
 		{ component: Tanned, optionValue: 'Tanned' },

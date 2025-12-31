@@ -1,24 +1,24 @@
 <!-- Colors.svelte -->
 <script lang="ts">
-	import Black from '$lib/components/avataaar/avatar/clothes/Colors/Black.svelte';
-	import Blue01 from '$lib/components/avataaar/avatar/clothes/Colors/Blue01.svelte';
-	import Blue02 from '$lib/components/avataaar/avatar/clothes/Colors/Blue02.svelte';
-	import Blue03 from '$lib/components/avataaar/avatar/clothes/Colors/Blue03.svelte';
-	import Gray01 from '$lib/components/avataaar/avatar/clothes/Colors/Gray01.svelte';
-	import Gray02 from '$lib/components/avataaar/avatar/clothes/Colors/Gray02.svelte';
-	import Heather from '$lib/components/avataaar/avatar/clothes/Colors/Heather.svelte';
-	import PastelBlue from '$lib/components/avataaar/avatar/clothes/Colors/PastelBlue.svelte';
-	import PastelGreen from '$lib/components/avataaar/avatar/clothes/Colors/PastelGreen.svelte';
-	import PastelOrange from '$lib/components/avataaar/avatar/clothes/Colors/PastelOrange.svelte';
-	import PastelRed from '$lib/components/avataaar/avatar/clothes/Colors/PastelRed.svelte';
-	import PastelYellow from '$lib/components/avataaar/avatar/clothes/Colors/PastelYellow.svelte';
-	import Pink from '$lib/components/avataaar/avatar/clothes/Colors/Pink.svelte';
-	import Red from '$lib/components/avataaar/avatar/clothes/Colors/Red.svelte';
-	import White from '$lib/components/avataaar/avatar/clothes/Colors/White.svelte';
-	import { ClotheColorOption } from '$lib/components/avataaar/options/options.js';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
+	import Black from './Black.svelte';
+	import Blue01 from './Blue01.svelte';
+	import Blue02 from './Blue02.svelte';
+	import Blue03 from './Blue03.svelte';
+	import Gray01 from './Gray01.svelte';
+	import Gray02 from './Gray02.svelte';
+	import Heather from './Heather.svelte';
+	import PastelBlue from './PastelBlue.svelte';
+	import PastelGreen from './PastelGreen.svelte';
+	import PastelOrange from './PastelOrange.svelte';
+	import PastelRed from './PastelRed.svelte';
+	import PastelYellow from './PastelYellow.svelte';
+	import Pink from './Pink.svelte';
+	import Red from './Red.svelte';
+	import White from './White.svelte';
+	import { ClotheColorOption } from '../../../options/options.js';
+	import Selector from '../../../options/Selector.svelte';
 
-	export let maskID: string;
+	let { maskID }: { maskID: string } = $props();
 
 	const components = [
 		{ component: Black, optionValue: 'Black' },

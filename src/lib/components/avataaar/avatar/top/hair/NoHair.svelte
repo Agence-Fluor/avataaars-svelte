@@ -1,19 +1,12 @@
 <!-- NoHair.svelte -->
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import FacialHair from '$lib/components/avataaar/avatar/top/facialHair/facialHair.svelte';
+	import FacialHair from '../facialHair/facialHair.svelte';
 	export const optionValue: string = 'NoHair';
 
-	let filter1: string;
-	let mask1: string;
-	let path1: string;
-
-	onMount(() => {
-		const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
-		filter1 = uniqueId();
-		mask1 = uniqueId();
-		path1 = uniqueId();
-	});
+	const uniqueId = (): string => 'id-' + Math.random().toString(36).substring(2, 11);
+	const filter1 = uniqueId();
+	const mask1 = uniqueId();
+	const path1 = uniqueId();
 </script>
 
 <g id="Top" stroke-width="1" fill-rule="evenodd">

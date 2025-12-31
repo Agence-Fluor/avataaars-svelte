@@ -6,38 +6,57 @@
 	import { svgToBlob } from './utils/svg2blob.js';
 
 	// Props
-	export let getBlob: ((blob: Blob) => void) | null = null;
-	export let avatarStyle = '';
-	export let className = '';
-	export let style: string = '';
+	let {
+		getBlob = null as ((blob: Blob) => void) | null,
+		avatarStyle = 'Circle',
+		className = '',
+		style = '',
+		topType = '',
+		accessoriesType = '',
+		hairColor = '',
+		facialHairType = '',
+		facialHairColor = '',
+		clotheType = '',
+		clotheColor = '',
+		graphicType = '',
+		eyeType = '',
+		eyebrowType = '',
+		mouthType = '',
+		skinColor = '',
+		backgroundColor = 'none', // Default: transparent (original: '#65C9FF')
+		blobUrl = $bindable('')
+	}: {
+		getBlob?: ((blob: Blob) => void) | null;
+		avatarStyle?: string;
+		className?: string;
+		style?: string;
+		topType?: string;
+		accessoriesType?: string;
+		hairColor?: string;
+		facialHairType?: string;
+		facialHairColor?: string;
+		clotheType?: string;
+		clotheColor?: string;
+		graphicType?: string;
+		eyeType?: string;
+		eyebrowType?: string;
+		mouthType?: string;
+		skinColor?: string;
+		blobUrl?: string;
+	} = $props();
 
-	export let topType = '';
-	export let accessoriesType = '';
-	export let hairColor = '';
-	export let facialHairType = '';
-	export let facialHairColor = '';
-	export let clotheType = '';
-	export let clotheColor = '';
-	export let graphicType = '';
-	export let eyeType = '';
-	export let eyebrowType = '';
-	export let mouthType = '';
-	export let skinColor = '';
-	export let blobUrl = '';
-	let avatarRef: SVGSVGElement;
+	let avatarRef = $state<SVGSVGElement | undefined>(undefined);
 
 	// OptionContext
 	let optionContext = new OptionContext(allOptions);
 	let blob: Blob | null = null;
-	$: blobUrl = '';
 
 	// Set context
 	setContext('optionContext', optionContext);
 
 	// Update optionContext when props change
-	$: updateOptionContext();
-
-	function updateOptionContext() {
+	$effect(() => {
+		// Access all props directly in the effect to track dependencies
 		const data: { [key: string]: any } = {};
 		for (const option of allOptions) {
 			let value = null;
@@ -73,7 +92,7 @@
 			}
 		}
 		optionContext.setData(data);
-	}
+	});
 
 	// Function to wait for avatarRef to be available
 	function waitForAvatarRef(): Promise<void> {
@@ -88,20 +107,20 @@
 	}
 
 	onMount(async () => {
-		updateOptionContext();
-
 		// Wait for avatarRef to be ready and then create the blob
 		await waitForAvatarRef();
-		blob = await svgToBlob(avatarRef);
-		getBlob && getBlob(blob);
+		if (avatarRef) {
+			blob = await svgToBlob(avatarRef);
+			getBlob && getBlob(blob);
+		}
 	});
 
-	$: {
+	$effect(() => {
 		if (blob && getBlob) {
 			getBlob(blob);
 			blobUrl = URL.createObjectURL(blob);
 		}
-	}
+	});
 </script>
 
 <Avatar bind:avatarRef {avatarStyle} {style} {className} />

@@ -1,9 +1,9 @@
 <!-- Eyes.svelte -->
 <script lang="ts">
-	import { EyesOption } from '$lib/components/avataaar/options/options.js';
-	import Selector from '$lib/components/avataaar/options/Selector.svelte';
-	import Close from '$lib/components/avataaar/avatar/face/eyes/Close.svelte';
-	import Default from '$lib/components/avataaar/avatar/face/eyes/Default.svelte';
+	import { EyesOption } from '../../../options/options.js';
+	import Selector from '../../../options/Selector.svelte';
+	import Close from './Close.svelte';
+	import Default from './Default.svelte';
 	import Cry from './Cry.svelte';
 	import Dizzy from './Dizzy.svelte';
 	import EyeRoll from './EyeRoll.svelte';
